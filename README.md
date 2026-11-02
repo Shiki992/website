@@ -7,8 +7,9 @@ Personal site of Hrishikesh Vedantam. Plain HTML, CSS and a little JavaScript, s
 - `index.html` – the whole site
 - `assets/style.css` – styles, with light and dark themes
 - `assets/main.js` – theme toggle, scroll reveals, copy-email button, and the hero honeycomb animation
+- `assets/img/` – logo mark, portraits, share card (`og-card.jpg`) and the 512px icon
 - `CNAME` – custom domain for GitHub Pages (`vedantam.co`)
-- `404.html`, `favicon.svg`, `robots.txt`, `sitemap.xml`
+- `404.html`, `favicon.ico`, `favicon-32.png`, `apple-touch-icon.png`, `robots.txt`, `sitemap.xml`
 
 ## Preview locally
 
