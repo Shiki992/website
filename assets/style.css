@@ -240,6 +240,7 @@ h2 {
 }
 .now .kicker { margin-bottom: 12px; }
 .now li { position: relative; padding-left: 20px; font-size: 15px; line-height: 1.5; color: var(--ink-2); }
+.now li a { color: var(--accent); font-weight: 600; text-underline-offset: 3px; }
 .now li + li { margin-top: 10px; }
 .now li::before {
   content: ""; position: absolute; left: 0; top: 0.55em; width: 8px; height: 8px;
@@ -269,6 +270,12 @@ h2 {
 .case { display: grid; grid-template-columns: 280px 1fr; gap: clamp(20px, 3vw, 40px); padding: 32px 0; border-bottom: 1px solid var(--line); }
 .case-tag { font: 600 12px/1.4 var(--f-display); color: var(--accent); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
 .case-head h3 { font-family: var(--f-display); font-weight: 600; font-size: clamp(20px, 2vw, 24px); line-height: 1.25; letter-spacing: -0.015em; }
+.case-link {
+  display: inline-flex; align-items: center; gap: 6px; margin-top: 14px;
+  padding: 7px 12px; border: 1px solid var(--line-strong); border-radius: 999px;
+  font: 500 13.5px/1 var(--f-body); color: var(--ink); text-decoration: none;
+}
+.case-link:hover { border-color: var(--ink); background: var(--brand-soft); }
 .case-body { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .case-body dt { font: 600 11.5px/1 var(--f-display); color: var(--muted); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 10px; }
 .case-body dd { font-size: 15px; line-height: 1.6; color: var(--ink-2); }

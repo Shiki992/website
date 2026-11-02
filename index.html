@@ -137,6 +137,7 @@
             <li>MBET, University of Waterloo: specialization in AI &amp; Digital Transformation</li>
             <li>Teaching Assistant, BET 405 Digital Leadership &amp; Transformation</li>
             <li>Product strategy for Honeycomb at Meridian Data Labs: market analysis, pricing and the V2 roadmap, reviewed weekly with leadership</li>
+            <li>Building <a href="https://github.com/Shiki992/lineage" target="_blank" rel="noopener">Lineage</a>, an open-source add-in that brings version control to Word, PowerPoint and Excel</li>
             <li>Building agents in n8n and Zapier, plus MCP servers and Claude skills</li>
           </ul>
           <p class="now-meta">Guelph, Ontario &middot; Canadian Permanent Resident</p>
@@ -240,12 +241,25 @@
           <article class="case reveal">
             <header class="case-head">
               <p class="case-tag">Software &middot; Modernization</p>
-              <h3>Fixing what was slowing people down</h3>
+              <h3>Finding the real bottleneck at Vassar Labs</h3>
             </header>
             <dl class="case-body">
-              <div><dt>Challenge</dt><dd>A media-sync job at Vassar Labs took 83 seconds, and a real-estate platform at Estatetial needed new infrastructure without downtime.</dd></div>
-              <div><dt>What I did</dt><dd>Traced N+1 queries and uncached API calls in New Relic. Built the Estatetial backend from scratch, moved it to TypeScript, and ran two cloud-to-cloud migrations.</dd></div>
-              <div class="case-outcome"><dt>Outcome</dt><dd>Latency cut from 83,750 ms to 408 ms, a 200&times; improvement, and both migrations (GCP to AWS, AWS to DigitalOcean) with zero downtime.</dd></div>
+              <div><dt>Challenge</dt><dd>A media-sync process at Vassar Labs took 83,750 ms to complete, and the cause wasn&rsquo;t obvious from the code.</dd></div>
+              <div><dt>What I did</dt><dd>Traced the slowdown in New Relic to N+1 database queries and uncached downstream API calls, fixed both, validated the change in staging and shipped it to production.</dd></div>
+              <div class="case-outcome"><dt>Outcome</dt><dd>Sync time down to 408 ms, a 200&times; improvement, plus a written diagnosis the team could reuse on the next slowdown.</dd></div>
+            </dl>
+          </article>
+
+          <article class="case reveal">
+            <header class="case-head">
+              <p class="case-tag">Open source &middot; Product</p>
+              <h3>Lineage: version control for people who never want to see git</h3>
+              <a class="case-link" href="https://github.com/Shiki992/lineage" target="_blank" rel="noopener">View on GitHub <span aria-hidden="true">&#8599;</span></a>
+            </header>
+            <dl class="case-body">
+              <div><dt>Challenge</dt><dd>People version documents by hand: one master resume with a copy for every role, one pitch deck with a version per investor. It works until the master changes and five copies need the same edit, or someone asks which version you sent.</dd></div>
+              <div><dt>What I&rsquo;m building</dt><dd>A free add-in for Word, PowerPoint and Excel that keeps tailored versions in step with the master, records every copy you send, and shows only the other person&rsquo;s changes when a file comes back. A Rust engine compiled to WebAssembly handles the documents, and history stays in the user&rsquo;s own OneDrive.</dd></div>
+              <div class="case-outcome"><dt>Where it stands</dt><dd>In development and open source under Apache-2.0. Built first for job seekers and founders, with Microsoft 365 teams to follow. No git words anywhere: just masters, versions and checkpoints.</dd></div>
             </dl>
           </article>
         </div>
@@ -493,7 +507,7 @@
           </div>
           <div class="skill reveal">
             <h3>Cloud, data &amp; code</h3>
-            <p>GCP &middot; AWS &middot; Azure &middot; Docker &middot; Kubernetes &middot; OpenStack &middot; Ansible &amp; pyInfra &middot; Linux &middot; Python, Go, TypeScript &middot; PostgreSQL &middot; Superset &amp; Grafana &middot; air-gapped deployment</p>
+            <p>GCP &middot; AWS &middot; Azure &middot; Docker &middot; Kubernetes &middot; OpenStack &middot; Ansible &amp; pyInfra &middot; Linux &middot; Python, Go, Rust, TypeScript &middot; WebAssembly &middot; Office add-ins &amp; Microsoft Graph &middot; PostgreSQL &middot; Superset &amp; Grafana &middot; air-gapped deployment</p>
           </div>
         </div>
       </div>
