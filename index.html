@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hrishikesh Vedantam</title>
+  <meta name="description" content="Hrishikesh Vedantam: co-founder of Meridian Data Labs. I build on-premise AI and IoT systems for places the cloud can't reach, including air-gapped defence sites. Based in Guelph, Ontario.">
+  <link rel="canonical" href="https://vedantam.co/">
+  <meta name="theme-color" content="#F6F3EC" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0E0F12" media="(prefers-color-scheme: dark)">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vedantam.co/">
+  <meta property="og:title" content="Hrishikesh Vedantam">
+  <meta property="og:description" content="Co-founder of Meridian Data Labs. On-premise AI and IoT systems for places the cloud can't reach.">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+
+  <script>
+    document.documentElement.classList.add('js');
+    try {
+      var t = localStorage.getItem('theme');
+      if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Hrishikesh Vedantam",
+    "url": "https://vedantam.co/",
+    "jobTitle": "Co-Founder & Product Lead",
+    "worksFor": { "@type": "Organization", "name": "Meridian Data Labs", "url": "https://www.meridiandatalabs.com" },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "IIITDM Kancheepuram" },
+      { "@type": "CollegeOrUniversity", "name": "University of Waterloo" }
+    ],
+    "address": { "@type": "PostalAddress", "addressLocality": "Guelph", "addressRegion": "ON", "addressCountry": "CA" },
+    "sameAs": [
+      "https://www.linkedin.com/in/hrishikesh-vedantam",
+      "https://github.com/Shiki992"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#top" aria-label="Hrishikesh Vedantam, back to top">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2.5 27.7 9.25v13.5L16 29.5 4.3 22.75V9.25Z"/></svg>
+        <span>Hrishikesh Vedantam</span>
+      </a>
+      <nav class="nav" aria-label="Sections">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#speaking">Speaking</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.6A8.2 8.2 0 0 1 9.4 4a8.2 8.2 0 1 0 10.6 10.6Z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Co-founder, Meridian Data Labs &middot; Guelph, ON</p>
+          <h1>Hrishikesh Vedantam</h1>
+          <p class="lede">I build AI and IoT systems that run where the cloud can&rsquo;t reach, and I stay on-site until they work.</p>
+          <p class="hero-sub">I&rsquo;ve shipped on-premise agentic AI and industrial IoT platforms into air-gapped defence facilities for the Indian Navy and DRDO. Now I&rsquo;m doing my MBET at the University of Waterloo.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="mailto:vedantam.hrishikesh@gmail.com">Get in touch</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/hrishikesh-vedantam" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">&#8599;</span></a>
+            <a class="btn btn-ghost" href="https://github.com/Shiki992" target="_blank" rel="noopener">GitHub <span aria-hidden="true">&#8599;</span></a>
+          </div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <canvas id="hive"></canvas>
+          <div class="hive-legend">
+            <span><i class="lg lg-ping"></i>sensor ping</span>
+            <span><i class="lg lg-gw"></i>on-prem gateway</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="wrap">
+        <dl class="stats">
+          <div class="stat"><dt>production platforms built from zero</dt><dd>3</dd></div>
+          <div class="stat"><dt>concurrent users on air-gapped Buzz AI</dt><dd>~100</dd></div>
+          <div class="stat"><dt>sensors a month through Honeycomb</dt><dd>1,554+</dd></div>
+          <div class="stat"><dt>ARR pipeline built at Optiply</dt><dd>US$100k</dd></div>
+          <div class="stat"><dt>team grown entering a new market</dt><dd>2&rarr;15</dd></div>
+          <div class="stat"><dt>latency cut, 83,750 ms to 408 ms</dt><dd>200&times;</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about" aria-labelledby="about-h">
+      <div class="wrap two-col">
+        <header class="section-head">
+          <p class="kicker">01 &mdash; About</p>
+          <h2 id="about-h">Founder-engineer. I build the system and explain it to the people who use it.</h2>
+        </header>
+        <div class="prose reveal">
+          <p>At <a href="https://www.meridiandatalabs.com" target="_blank" rel="noopener">Meridian Data Labs</a> I co-founded and lead product for three platforms: <strong>Buzz AI</strong>, an on-premise agentic AI system; <strong>Honeycomb</strong>, a multi-tenant industrial IoT platform; and <strong>Honeycomb Edge</strong>, a runtime for hardware that never sees the internet. Our clients include the Indian Navy, DRDO, HAL, GRSE and the Indian Coast Guard. That means MoD compliance, sites with no internet, and no way to push a fix remotely.</p>
+          <p>I&rsquo;ve spent weeks on-site at those facilities, mapping how people actually work before we build anything. The stated problem and the real one are usually different, and the real one is the one worth solving.</p>
+          <p>Before that I opened the Indian market for <strong>Optiply</strong>, a Dutch inventory and purchasing SaaS. There was no team, no customers and no playbook. Two years later we had 15 people and a US$100k ARR pipeline, and I&rsquo;d built the ERP integrations myself.</p>
+          <p>I started out as a software engineer and I still write the code. These days I spend as much time on pricing, bids and roadmaps as on Go and Python, and I like it that way.</p>
+        </div>
+        <aside class="now reveal" aria-label="Currently">
+          <p class="kicker">Right now</p>
+          <ul>
+            <li>Running the Honeycomb V2 roadmap and pricing through weekly leadership reviews</li>
+            <li>Building Honeycomb&rsquo;s mobile app and backend services</li>
+            <li>MBET at the University of Waterloo, specializing in AI &amp; Digital Transformation</li>
+            <li>Teaching Assistant for BET 405, Digital Leadership &amp; Transformation</li>
+            <li>On the side: MCP servers, Claude skills, and n8n / Zapier automations</li>
+          </ul>
+          <p class="now-meta">Guelph, Ontario &middot; Canadian Permanent Resident</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section class="section" id="work" aria-labelledby="work-h">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="kicker">02 &mdash; Systems built &amp; shipped</p>
+          <h2 id="work-h">Things running in production, mostly somewhere without Wi-Fi.</h2>
+        </header>
+
+        <div class="work-grid">
+          <article class="card card-feature reveal">
+            <div class="card-top">
+              <h3>Buzz AI</h3>
+              <span class="status"><span class="pulse" aria-hidden="true"></span>Live &middot; Indian Navy, DRDO</span>
+            </div>
+            <p class="card-sub">On-premise agentic AI platform</p>
+            <p>Open-source LLMs (Llama 3, Mistral) behind a RAG pipeline on PostgreSQL and pgvector, with multi-step agentic workflows, tool calling and fallback logic, evaluation frameworks and guardrails. Around 100 concurrent users ask questions of their own documents and every answer is cited to its source. Fully air-gapped: no data leaves the site.</p>
+            <p class="aside-note">The hard part was never the LLM. It was ingestion, chunking, metadata filtering and reranking, iterated until retrieval returned the right context for each kind of question.</p>
+            <ul class="tags"><li>Llama 3</li><li>Mistral</li><li>RAG</li><li>pgvector</li><li>Tool calling</li><li>Evals</li><li>Guardrails</li><li>AnythingLLM</li></ul>
+          </article>
+
+          <article class="card card-feature reveal">
+            <div class="card-top">
+              <h3>Honeycomb</h3>
+              <span class="status"><span class="pulse" aria-hidden="true"></span>Deployed &middot; 5 defence clients</span>
+            </div>
+            <p class="card-sub">Multi-tenant industrial IoT data platform</p>
+            <p>Handles 1,554+ sensors a month across defence and industrial sites: REST APIs, webhook pipelines, Magistrala asset management and Apache Superset analytics. Deployed at DRDO, HAL, GRSE, the Indian Navy and the Indian Coast Guard.</p>
+            <p class="aside-note">For one plant-wide rollout I scoped 1,554 sensors across 14 plant sections, classifying every point by flammability zone to drive hardware, cost and the installation plan.</p>
+            <ul class="tags"><li>Magistrala</li><li>ChirpStack</li><li>EdgeX Foundry</li><li>LoRaWAN</li><li>MQTT</li><li>Superset</li></ul>
+          </article>
+
+          <article class="card reveal">
+            <h3>Honeycomb Edge</h3>
+            <p class="card-sub">Field-deployable edge runtime</p>
+            <p>Go binaries, no Docker, offline-capable, running on resource-constrained hardware over HTTPS and MQTTS. Built for places with zero connectivity and no remote support.</p>
+            <ul class="tags"><li>Go</li><li>MQTTS</li><li>Offline-first</li></ul>
+          </article>
+
+          <article class="card reveal">
+            <h3>Zero-trust network layer</h3>
+            <p class="card-sub">Tailscale + a custom ZKP auth module</p>
+            <p>A WireGuard overlay giving secure access from North America to an on-premise intranet in India, with a Go authentication module implementing Chaum-Pedersen zero-knowledge proofs for clients with strict MoD requirements.</p>
+            <ul class="tags"><li>Tailscale</li><li>WireGuard</li><li>Go</li><li>Zero-knowledge proofs</li></ul>
+          </article>
+
+          <article class="card reveal">
+            <h3>pyInfra deployment system</h3>
+            <p class="card-sub">Six-service infrastructure as code</p>
+            <p>One-command deploys of EdgeX Foundry, Magistrala, ChirpStack, Superset and the Honeycomb backend and frontend across dev, test and production, with automated rollback, systemd and nginx. The tenth deployment was 10&times; faster than the first.</p>
+            <ul class="tags"><li>pyInfra</li><li>systemd</li><li>nginx</li><li>Linux</li></ul>
+          </article>
+
+          <article class="card reveal">
+            <h3>ERP integrations</h3>
+            <p class="card-sub">Zoho and Odoo, for Optiply</p>
+            <p>Native REST and webhook integrations: data models, field mapping, transformation, delivery and retry behaviour, sandbox validation and post-launch payload debugging. Real-time sync that drove ARR growth.</p>
+            <ul class="tags"><li>REST</li><li>Webhooks</li><li>Zoho</li><li>Odoo</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Principles -->
+    <section class="section section-tint" aria-labelledby="how-h">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="kicker">03 &mdash; How I work</p>
+          <h2 id="how-h">A few habits that came from deploying where nobody can help you.</h2>
+        </header>
+        <ol class="principles">
+          <li class="reveal">
+            <h3>Sit with the work first</h3>
+            <p>I go on-site and watch before I build. At Optiply and at MDL, the real workflow was different from the documented one almost every time.</p>
+          </li>
+          <li class="reveal">
+            <h3>Test value before building</h3>
+            <p>Given an open brief from a utility, I mapped their operations into 15 AI use cases, ranked them by value and ease, and anchored the roadmap on the strongest one.</p>
+          </li>
+          <li class="reveal">
+            <h3>Make the tenth deploy boring</h3>
+            <p>Automate it, runbook it, and make rollback one command. If every install is heroic, the system isn&rsquo;t done.</p>
+          </li>
+          <li class="reveal">
+            <h3>Write it down</h3>
+            <p>Integration guides, API specs, runbooks, prompt evaluation playbooks. Each one is written so the next person can use it without getting me on a call.</p>
+          </li>
+          <li class="reveal">
+            <h3>Own it in the field</h3>
+            <p>I&rsquo;ve debugged production at 2am inside air-gapped naval facilities with no internet and no one to escalate to. You make the call, then you fix it.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section" id="experience" aria-labelledby="exp-h">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="kicker">04 &mdash; Experience</p>
+          <h2 id="exp-h">Where I&rsquo;ve worked.</h2>
+        </header>
+
+        <ol class="timeline">
+          <li class="job reveal">
+            <div class="job-when"><time>Mar 2024</time> &ndash; Present</div>
+            <div class="job-body">
+              <h3>Co-Founder &amp; Product Lead <span class="at">Meridian Data Labs</span></h3>
+              <p class="job-where">Hyderabad, India / Guelph, ON (remote)</p>
+              <ul>
+                <li>Built three production platforms from zero to enterprise contracts (Buzz AI, Honeycomb, Honeycomb Edge), owning vision, architecture, engineering, commercials and post-deployment operations for all three.</li>
+                <li>Embedded on-site at DRDO, HAL, GRSE, Indian Navy and Indian Coast Guard facilities; resolved production failures in air-gapped environments with no outside support.</li>
+                <li>Ran engagements from discovery to contract: RFIs, RFPs and GeM bids, including a full Indian Coast Guard bid with a compliance matrix. Built the pricing, business cases and scenario models behind bids across five clients, and secured MoD clearance for every defence deployment.</li>
+                <li>Hired and coached engineers, designers and commercial staff; set the hiring bar, code review, runbooks and architecture patterns; led the team&rsquo;s move onto AI tools across engineering, commercial and operations work.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="job reveal">
+            <div class="job-when"><time>Fall 2026</time> &ndash; Present</div>
+            <div class="job-body">
+              <h3>Teaching Assistant <span class="at">University of Waterloo</span></h3>
+              <p class="job-where">BET 405, Digital Leadership &amp; Transformation</p>
+            </div>
+          </li>
+
+          <li class="job reveal">
+            <div class="job-when"><time>Mar 2022</time> &ndash; Mar 2024</div>
+            <div class="job-body">
+              <h3>Techno-Commercial Manager, Asia <span class="at">Optiply</span></h3>
+              <p class="job-where">Hyderabad, India</p>
+              <ul>
+                <li>Led India market entry for a Dutch inventory and purchasing SaaS from zero: go-to-market, segmentation, positioning and pricing. Grew the team from 2 to 15, built a US$100k ARR pipeline, and reported strategy to leadership in Amsterdam.</li>
+                <li>Designed and shipped native Zoho and Odoo ERP integrations over REST and webhooks, and owned them through go-live and post-launch fixes.</li>
+                <li>Ran discovery with client procurement and inventory teams, built internal operations tooling in Retool, and managed pipeline in HubSpot.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="job reveal">
+            <div class="job-when"><time>May 2021</time> &ndash; Jan 2022</div>
+            <div class="job-body">
+              <h3>Software Engineer <span class="at">Vassar Labs</span></h3>
+              <p class="job-where">Hyderabad, India</p>
+              <ul>
+                <li>Cut media-sync latency from 83,750 ms to 408 ms, a 200&times; improvement, by tracing N+1 queries and uncached downstream API calls in New Relic. Fixed, validated in staging, shipped, and documented the diagnosis for the team.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="job reveal">
+            <div class="job-when"><time>Aug 2021</time> &ndash; Dec 2021</div>
+            <div class="job-body">
+              <h3>Teaching Assistant, Cloud Computing <span class="at">Coding Dojo</span></h3>
+              <p class="job-where">Remote, part-time</p>
+              <ul>
+                <li>Co-developed the GCP curriculum, led a live session on APIs and cloud integration, and wrote guides learners used after the course.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="job reveal">
+            <div class="job-when"><time>Sep 2020</time> &ndash; Jan 2021</div>
+            <div class="job-body">
+              <h3>Software Architecture Intern <span class="at">Estatetial</span></h3>
+              <p class="job-where">Markham, ON (remote)</p>
+              <ul>
+                <li>Built the production backend for a real-estate platform from scratch: GraphQL and Node.js services, a JavaScript-to-TypeScript migration, Docker and Kubernetes. Ran two zero-downtime cloud migrations, GCP to AWS and AWS to DigitalOcean.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="job reveal">
+            <div class="job-when"><time>May 2020</time> &ndash; Aug 2020</div>
+            <div class="job-body">
+              <h3>Cloud Deployment Intern <span class="at">Indian Institute of Technology</span></h3>
+              <p class="job-where">Hyderabad, India</p>
+              <ul>
+                <li>Deployed private cloud infrastructure on OpenStack with Ansible, and built software-defined networking for routing, segmentation, firewall rules and access control.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="job reveal">
+            <div class="job-when"><time>May 2019</time> &ndash; Jun 2019</div>
+            <div class="job-body">
+              <h3>Academic Intern <span class="at">National University of Singapore</span></h3>
+              <p class="job-where">Singapore</p>
+              <ul>
+                <li>Built secure IoT applications on Raspberry Pi, Arduino, ESP32 and micro:bit boards talking to Microsoft Azure over CoAP, MQTT and HTTP.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="job reveal">
+            <div class="job-when"><time>May 2018</time> &ndash; Jul 2018</div>
+            <div class="job-body">
+              <h3>Software Development Intern <span class="at">TrackIT Solutions</span></h3>
+              <p class="job-where">Dubai, UAE</p>
+              <ul>
+                <li>Trained in full-stack web development and the software development life cycle, from requirements through testing and deployment.</li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Speaking -->
+    <section class="section section-tint" id="speaking" aria-labelledby="speak-h">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="kicker">05 &mdash; Speaking &amp; recognition</p>
+          <h2 id="speak-h">On stage, on camera, and in print.</h2>
+        </header>
+
+        <div class="speak-grid">
+          <article class="talk reveal">
+            <p class="talk-label">Keynote &middot; 2025</p>
+            <h3>&ldquo;Secure, On-Prem Intelligence at Scale&rdquo;</h3>
+            <p>Startup Mahakumbh 2025, hosted by iDEX at Bharat Mandapam, New Delhi. Live product demos for founders, policymakers and enterprise leaders, with 95% positive attendee feedback.</p>
+          </article>
+
+          <ul class="honors">
+            <li class="reveal">
+              <span class="honor-k">Research citation &middot; 2026</span>
+              <span class="honor-v">Quoted as an industry expert in TDK Ventures &times; Theia Ventures research on India&rsquo;s Industrial IoT and Digital Twins opportunity.</span>
+            </li>
+            <li class="reveal">
+              <span class="honor-k">Award</span>
+              <span class="honor-v">Young Achievers Award, Indian Achievers Forum.</span>
+            </li>
+            <li class="reveal">
+              <span class="honor-k">Video</span>
+              <span class="honor-v">Interviews with MyStartupTV (SwarAksha Mahotsav 2025) and the Indian Achievers Forum, plus product launch and demo videos.</span>
+            </li>
+            <li class="reveal">
+              <span class="honor-k">Writing</span>
+              <span class="honor-v">Articles on the Meridian Data Labs technical blog about on-premise AI, edge computing, IoT architecture and agentic system design.</span>
+            </li>
+            <li class="reveal">
+              <span class="honor-k">Open source</span>
+              <span class="honor-v">Active in the EdgeX Foundry, OpenWebUI and Flutter communities: bug reports, developer Q&amp;A and upstream tracking.</span>
+            </li>
+            <li class="reveal">
+              <span class="honor-k">Events</span>
+              <span class="honor-v">Designed our exhibition stalls and ran live demos at industry events for two years.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Toolkit -->
+    <section class="section" id="toolkit" aria-labelledby="tool-h">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="kicker">06 &mdash; Toolkit</p>
+          <h2 id="tool-h">What I reach for.</h2>
+        </header>
+        <div class="skills">
+          <div class="skill reveal">
+            <h3>AI &amp; agents</h3>
+            <p>Llama 3, Mistral, Falcon &middot; Claude API, Bedrock &middot; RAG, retrieval &amp; reranking &middot; pgvector &middot; agentic workflows &amp; tool calling &middot; MCP servers &middot; evaluation &amp; guardrails &middot; structured outputs &middot; prompt engineering</p>
+          </div>
+          <div class="skill reveal">
+            <h3>Languages</h3>
+            <p>Python &middot; Go &middot; TypeScript &middot; Node.js &middot; JavaScript &middot; Bash &middot; SQL &middot; Java &middot; C/C++</p>
+          </div>
+          <div class="skill reveal">
+            <h3>Cloud &amp; infrastructure</h3>
+            <p>GCP &middot; AWS &middot; Azure &middot; Kubernetes &middot; Docker &middot; OpenStack &middot; Ansible &middot; pyInfra &middot; CI/CD &middot; systemd &middot; nginx &middot; Linux administration &middot; air-gapped deployment</p>
+          </div>
+          <div class="skill reveal">
+            <h3>Networking &amp; security</h3>
+            <p>Zero-trust networking &middot; Tailscale &middot; WireGuard &middot; zero-knowledge proofs &middot; TCP/IP, DNS, routing &middot; firewalls &middot; SDN &middot; SSO, SAML, OIDC</p>
+          </div>
+          <div class="skill reveal">
+            <h3>Data</h3>
+            <p>PostgreSQL &middot; TimescaleDB &middot; pgvector &middot; Apache Superset &middot; Grafana &middot; ETL &amp; data pipelines &middot; chunking &amp; embedding</p>
+          </div>
+          <div class="skill reveal">
+            <h3>IoT &amp; edge</h3>
+            <p>EdgeX Foundry &middot; ChirpStack &middot; Magistrala &middot; LoRaWAN &middot; MQTT &middot; CoAP &middot; Raspberry Pi &middot; Arduino &middot; ESP32</p>
+          </div>
+          <div class="skill reveal">
+            <h3>Integration &amp; automation</h3>
+            <p>REST &middot; GraphQL &middot; webhooks &middot; OpenAPI &middot; Postman &middot; Zoho &amp; Odoo ERP &middot; n8n &middot; Zapier &middot; Retool &middot; HubSpot</p>
+          </div>
+          <div class="skill reveal">
+            <h3>Delivery &amp; commercial</h3>
+            <p>Discovery &amp; requirements &middot; solution architecture &middot; use-case prioritization &middot; pricing &amp; business cases &middot; RFI / RFP / GeM bids &middot; contract compliance &middot; programme management &middot; technical writing</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section" id="education" aria-labelledby="edu-h">
+      <div class="wrap two-col-even">
+        <div>
+          <header class="section-head">
+            <p class="kicker">07 &mdash; Education</p>
+            <h2 id="edu-h">Engineer by training, now studying the business side.</h2>
+          </header>
+          <ul class="edu">
+            <li class="reveal">
+              <p class="edu-when">Sep 2026 &ndash; Sep 2027</p>
+              <h3>University of Waterloo</h3>
+              <p>Master of Business, Entrepreneurship and Technology (MBET), in progress. Specialization in AI &amp; Digital Transformation.</p>
+            </li>
+            <li class="reveal">
+              <p class="edu-when">2017 &ndash; 2022</p>
+              <h3>IIITDM Kancheepuram</h3>
+              <p>Dual degree (B.Tech + M.Tech), Computer Engineering. Chennai, India.</p>
+            </li>
+            <li class="reveal">
+              <p class="edu-when">Until 2017</p>
+              <h3>Delhi Private School</h3>
+              <p>Secondary education, Computer Science. Dubai, UAE.</p>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <header class="section-head">
+            <p class="kicker">Certifications</p>
+            <h2 class="h2-sm">Cloud credentials.</h2>
+          </header>
+          <ul class="certs">
+            <li class="reveal"><span class="cert-org">Google Cloud</span>Professional Cloud Architect</li>
+            <li class="reveal"><span class="cert-org">Google Cloud</span>Associate Cloud Engineer</li>
+            <li class="reveal"><span class="cert-org">AWS</span>Certified Solutions Architect &ndash; Associate</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact" id="contact" aria-labelledby="contact-h">
+      <div class="wrap">
+        <p class="kicker">08 &mdash; Contact</p>
+        <h2 id="contact-h" class="contact-h">Let&rsquo;s talk.</h2>
+        <p class="contact-lede">I&rsquo;m always up for a conversation about deploying AI in hard environments, edge and IoT systems, or work where I get to do both the building and the explaining.</p>
+        <div class="contact-row">
+          <a class="email" href="mailto:vedantam.hrishikesh@gmail.com">vedantam.hrishikesh@gmail.com</a>
+          <button class="copy" type="button" data-copy="vedantam.hrishikesh@gmail.com">Copy</button>
+        </div>
+        <ul class="contact-links">
+          <li><a href="https://www.linkedin.com/in/hrishikesh-vedantam" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">&#8599;</span></a></li>
+          <li><a href="https://github.com/Shiki992" target="_blank" rel="noopener">GitHub <span aria-hidden="true">&#8599;</span></a></li>
+          <li><a href="https://www.meridiandatalabs.com" target="_blank" rel="noopener">Meridian Data Labs <span aria-hidden="true">&#8599;</span></a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>&copy; <span id="year">2026</span> Hrishikesh Vedantam</span>
+      <span>Guelph, Ontario &middot; Hand-built, no frameworks</span>
+    </div>
+  </footer>
+
+  <script src="assets/main.js" defer></script>
+</body>
+</html>
