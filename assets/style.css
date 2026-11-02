@@ -336,7 +336,7 @@ h2 {
 .skill p { font-size: 14.5px; line-height: 1.7; color: var(--ink-2); margin: 0; }
 
 /* Education */
-.two-col-even { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(32px, 6vw, 80px); }
+.edu { max-width: 760px; }
 .edu li { padding: 18px 0; border-top: 1px solid var(--line); }
 .edu-when { font: 400 12.5px/1 var(--f-mono); color: var(--muted); margin-bottom: 8px; }
 .edu h3 { font-family: var(--f-display); font-size: 22px; letter-spacing: -0.015em; margin-bottom: 4px; }
@@ -351,13 +351,6 @@ h2 {
   font: 500 11px/1 var(--f-mono); text-transform: uppercase; letter-spacing: .05em;
   background: var(--btn-bg); color: var(--btn-fg); padding: 6px 9px; border-radius: 999px;
 }
-.certs li {
-  display: flex; flex-direction: column; gap: 4px;
-  padding: 16px 18px; margin-bottom: 10px;
-  background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
-  font-weight: 500;
-}
-.cert-org { font: 400 12px/1 var(--f-mono); color: var(--muted); }
 
 /* Contact */
 .contact-grid { display: grid; grid-template-columns: 1fr 300px; gap: clamp(32px, 5vw, 72px); align-items: center; }
@@ -427,7 +420,6 @@ h2 {
   .hero-grid { grid-template-columns: 1fr; }
   .hero-art { order: -1; width: 260px; justify-self: start; margin: -8px 0 4px -20px; }
   .speak-grid { grid-template-columns: 1fr; }
-  .two-col-even { grid-template-columns: 1fr; }
   .job { grid-template-columns: 1fr; gap: 6px; }
   .case-body { grid-template-columns: 1fr; gap: 16px; }
   .case-outcome { margin: 0; }
