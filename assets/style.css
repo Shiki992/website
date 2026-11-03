@@ -261,7 +261,6 @@ h1 {
 }
 /* A share of the card height, so logos scale with the card on phones. Full logos set their own --h. */
 .org img { height: var(--h, 50%); width: auto; }
-.org-tile { border-radius: 22%; }
 /* Logos that already carry the name keep it for screen readers only. */
 .org--logo span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 
