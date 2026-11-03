@@ -35,6 +35,43 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  /* ---------- Mobile menu ---------- */
+  var menuBtn = document.querySelector('.menu-toggle');
+  var menu = document.getElementById('mobile-menu');
+  if (menuBtn && menu && topbar) {
+    var setMenu = function (open) {
+      if (open === !menu.hidden) return;
+      // Keep the page from shifting when a classic scrollbar goes away.
+      document.body.style.paddingRight = open ? (window.innerWidth - root.clientWidth) + 'px' : '';
+      document.body.classList.toggle('menu-open', open);
+      menu.hidden = !open;
+      menuBtn.setAttribute('aria-expanded', String(open));
+      // The top bar is sticky, so a plain focus() would scroll the page to where it sits in the flow.
+      (open ? menu.querySelector('a') : menuBtn).focus({ preventScroll: true });
+    };
+    menuBtn.addEventListener('click', function () { setMenu(menu.hidden); });
+    // Closing first unlocks the page, so the link's own scroll to its section can run.
+    topbar.addEventListener('click', function (e) {
+      if (!e.target.closest('a') || menu.hidden) return;
+      setMenu(false);
+      // Following a link drops focus, so hand it back once the browser has done that.
+      setTimeout(function () { menuBtn.focus({ preventScroll: true }); });
+    });
+    document.addEventListener('keydown', function (e) {
+      if (menu.hidden) return;
+      if (e.key === 'Escape') { setMenu(false); return; }
+      if (e.key !== 'Tab') return;
+      // The page behind is locked, so Tab stays in the top bar and the panel. Moved by hand because Safari's Tab skips links.
+      var items = [].filter.call(topbar.querySelectorAll('a, button'), function (el) { return el.offsetWidth > 0; });
+      var at = items.indexOf(document.activeElement);
+      e.preventDefault();
+      items[(at + (e.shiftKey ? -1 : 1) + items.length) % items.length].focus({ preventScroll: true });
+    });
+    window.matchMedia('(min-width: 901px)').addEventListener('change', function (e) {
+      if (e.matches) setMenu(false);
+    });
+  }
+
   /* ---------- Reveal on scroll + active nav ---------- */
   var reveals = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && !reduceMotion.matches) {
@@ -51,16 +88,18 @@
     reveals.forEach(function (el) { el.classList.add('in'); });
   }
 
-  var navLinks = document.querySelectorAll('.nav a');
+  var navLinks = document.querySelectorAll('.nav a, .mobile-nav a');
   if ('IntersectionObserver' in window && navLinks.length) {
     var byId = {};
-    navLinks.forEach(function (a) { byId[a.getAttribute('href').slice(1)] = a; });
+    navLinks.forEach(function (a) {
+      var id = a.getAttribute('href').slice(1);
+      (byId[id] = byId[id] || []).push(a);
+    });
     var navIo = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
         navLinks.forEach(function (a) { a.classList.remove('active'); });
-        var link = byId[e.target.id];
-        if (link) link.classList.add('active');
+        (byId[e.target.id] || []).forEach(function (a) { a.classList.add('active'); });
       });
     }, { rootMargin: '-45% 0px -50% 0px' });
     document.querySelectorAll('main section[id]').forEach(function (s) { navIo.observe(s); });
@@ -134,12 +173,10 @@
   }
 
   /* ---------- Scroll-linked sections ---------- */
-  var wide = window.matchMedia('(min-width: 900px)');
   var stackable = window.matchMedia('(min-width: 821px)');
+  var stacking = window.matchMedia('screen and (min-width: 821px) and (min-height: 720px) and (prefers-reduced-motion: no-preference)');
   var proc = document.querySelector('.process');
-  var procPin = proc && proc.querySelector('.process-pin');
-  var procTrack = proc && proc.querySelector('.process-track');
-  var procTravel = 0, procTop = 0;
+  var procView = proc && proc.querySelector('.process-viewport');
   var stacks = [].slice.call(document.querySelectorAll('[data-stack]')).map(function (s) {
     return [].slice.call(s.children);
   });
@@ -164,36 +201,33 @@
     stage.querySelector('.stage-name').textContent = hoodItems[i].querySelector('h3').textContent;
   }
 
-  // What I do: pin the band and turn vertical scrolling into sideways travel.
-  function layoutProcess() {
+  // What I do: where the cards overflow, show how far along the scroller is and that there's more.
+  function updateProcess() {
     if (!proc) return;
-    var pin = wide.matches && !reduceMotion.matches;
-    proc.classList.toggle('is-pinned', pin);
-    procTrack.style.transform = '';
-    if (!pin) { proc.style.height = ''; return; }
-    procTop = parseFloat(getComputedStyle(procPin).top) || 0;
-    procTravel = Math.max(0, procTrack.offsetWidth - procPin.clientWidth);
-    proc.style.height = Math.round(procPin.offsetHeight + procTravel * 1.3) + 'px';
+    var max = procView.scrollWidth - procView.clientWidth;
+    var canScroll = max > 1;
+    proc.classList.toggle('can-scroll', canScroll);
+    proc.classList.toggle('at-end', canScroll && procView.scrollLeft >= max - 2);
+    if (canScroll) {
+      procView.tabIndex = 0;
+      proc.style.setProperty('--thumb', (procView.clientWidth / procView.scrollWidth * 100).toFixed(2) + '%');
+      proc.style.setProperty('--pos', (procView.scrollLeft / procView.clientWidth * 100).toFixed(2) + '%');
+    } else {
+      procView.removeAttribute('tabindex');
+    }
   }
 
   function updateScrollFx() {
-    if (proc && proc.classList.contains('is-pinned')) {
-      var r = proc.getBoundingClientRect();
-      var range = r.height - procPin.offsetHeight;
-      var p = range > 0 ? clamp01((procTop - r.top) / range) : 0;
-      procTrack.style.transform = 'translate3d(' + (-p * procTravel).toFixed(1) + 'px, 0, 0)';
-    }
-
-    // Work and platforms: each card shrinks a little as the next one slides over it.
-    var shrink = stackable.matches && !reduceMotion.matches;
+    // Work: each card shrinks a little and its content fades as the next one slides over it.
     stacks.forEach(function (cards) {
       for (var i = 0; i < cards.length - 1; i++) {
         var q = 0;
-        if (shrink) {
+        if (stacking.matches) {
           var gap = cards[i + 1].getBoundingClientRect().top - cards[i].getBoundingClientRect().top;
           q = clamp01(1 - gap / cards[i].offsetHeight);
         }
         cards[i].style.transform = q ? 'scale(' + (1 - q * 0.05).toFixed(4) + ')' : '';
+        cards[i].style.setProperty('--covered', clamp01((q - 0.15) / 0.6).toFixed(3));
       }
     });
 
@@ -228,7 +262,8 @@
     fxQueued = true;
     requestAnimationFrame(function () { fxQueued = false; updateScrollFx(); });
   }
-  function relayout() { layoutProcess(); updateScrollFx(); }
+  function relayout() { updateProcess(); updateScrollFx(); }
+  if (procView) procView.addEventListener('scroll', updateProcess, { passive: true });
   window.addEventListener('scroll', queueFx, { passive: true });
   window.addEventListener('resize', relayout);
   window.addEventListener('load', relayout);

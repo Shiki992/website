@@ -81,7 +81,20 @@
         <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
         <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.6A8.2 8.2 0 0 1 9.4 4a8.2 8.2 0 1 0 10.6 10.6Z"/></svg>
       </button>
+      <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg class="i-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="i-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
     </div>
+    <nav class="mobile-nav" id="mobile-menu" aria-label="Sections" hidden>
+      <a href="#about">About</a>
+      <a href="#services">What I do</a>
+      <a href="#work">Work</a>
+      <a href="#platforms">Platforms</a>
+      <a href="#experience">Experience</a>
+      <a href="#speaking">Speaking</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
   <main id="main">
@@ -174,52 +187,54 @@
       </div>
     </section>
 
-    <!-- Services: cards pan sideways as the page scrolls -->
+    <!-- Services: a four-column row on wide screens, a sideways scroller below that -->
     <section class="process" id="services" aria-labelledby="svc-h">
-      <div class="process-pin">
-        <div class="wrap process-head">
-          <div>
-            <p class="kicker">What I do</p>
-            <h2 id="svc-h">From the first discovery workshop to the tenth deployment.</h2>
-          </div>
-          <p class="process-note">Four stages, run as one engagement, so nothing gets lost between the strategy and the people who use it.</p>
+      <div class="wrap process-head">
+        <div>
+          <p class="kicker">What I do</p>
+          <h2 id="svc-h">From the first discovery workshop to the tenth deployment.</h2>
         </div>
-        <div class="process-viewport">
-          <ol class="process-track">
-            <li class="process-card">
-              <span class="process-num">01</span>
-              <div class="process-body">
-                <h3>Find the value</h3>
-                <p>Current-state assessments, process audits and workflow mapping. Then use cases ranked by value and ease, with ROI and pricing models behind them.</p>
-                <p class="process-proof">15 AI use cases mapped for a utility; one anchor win chosen</p>
-              </div>
-            </li>
-            <li class="process-card">
-              <span class="process-num">02</span>
-              <div class="process-body">
-                <h3>Shape the roadmap</h3>
-                <p>Roadmaps, business cases and scenario models. Go-to-market, pricing, and vendor and model selection under real compliance constraints.</p>
-                <p class="process-proof">Pricing and business cases behind defence bids for five clients</p>
-              </div>
-            </li>
-            <li class="process-card">
-              <span class="process-num">03</span>
-              <div class="process-body">
-                <h3>Build what it calls for</h3>
-                <p>Agentic AI, RAG and automations in n8n, Zapier and Retool, wired into business systems through APIs, webhooks and ERP integrations.</p>
-                <p class="process-proof">Buzz AI, live and air-gapped at the Indian Navy and DRDO</p>
-              </div>
-            </li>
-            <li class="process-card">
-              <span class="process-num">04</span>
-              <div class="process-body">
-                <h3>Make it stick</h3>
-                <p>Rollout, training, runbooks and prompt playbooks. Bringing teams onto AI tools across engineering, commercial and operations work.</p>
-                <p class="process-proof">The tenth deployment ran 10&times; faster than the first</p>
-              </div>
-            </li>
-          </ol>
-        </div>
+        <p class="process-note">Four stages, run as one engagement, so nothing gets lost between the strategy and the people who use it.</p>
+      </div>
+      <div class="process-viewport">
+        <ol class="process-track">
+          <li class="process-card">
+            <span class="process-num">01</span>
+            <div class="process-body">
+              <h3>Find the value</h3>
+              <p>Current-state assessments, process audits and workflow mapping. Then use cases ranked by value and ease, with ROI and pricing models behind them.</p>
+              <p class="process-proof">15 AI use cases mapped for a utility; one anchor win chosen</p>
+            </div>
+          </li>
+          <li class="process-card">
+            <span class="process-num">02</span>
+            <div class="process-body">
+              <h3>Shape the roadmap</h3>
+              <p>Roadmaps, business cases and scenario models. Go-to-market, pricing, and vendor and model selection under real compliance constraints.</p>
+              <p class="process-proof">Pricing and business cases behind defence bids for five clients</p>
+            </div>
+          </li>
+          <li class="process-card">
+            <span class="process-num">03</span>
+            <div class="process-body">
+              <h3>Build what it calls for</h3>
+              <p>Agentic AI, RAG and automations in n8n, Zapier and Retool, wired into business systems through APIs, webhooks and ERP integrations.</p>
+              <p class="process-proof">Buzz AI, live and air-gapped at the Indian Navy and DRDO</p>
+            </div>
+          </li>
+          <li class="process-card">
+            <span class="process-num">04</span>
+            <div class="process-body">
+              <h3>Make it stick</h3>
+              <p>Rollout, training, runbooks and prompt playbooks. Bringing teams onto AI tools across engineering, commercial and operations work.</p>
+              <p class="process-proof">The tenth deployment ran 10&times; faster than the first</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div class="wrap process-hint" aria-hidden="true">
+        <span class="process-hint-bar"><i></i></span>
+        <span class="process-hint-arrow">&rarr;</span>
       </div>
     </section>
 
@@ -718,7 +733,7 @@
           <ul class="honors">
             <li class="reveal">
               <span class="honor-k">Research &middot; 2026</span>
-              <span class="honor-v">Quoted as an industry expert in TDK Ventures &times; Theia Ventures research on India&rsquo;s Industrial IoT and Digital Twins opportunity.</span>
+              <span class="honor-v">Quoted as an industry expert in TDK Ventures &times; Theia Ventures research on India&rsquo;s Industrial IoT and Digital Twins opportunity. <a class="honor-link" href="https://tdk-ventures.com/indias-industrial-energy-transition-opportunity-2026-part-i/" target="_blank" rel="noopener noreferrer">Read the report (p. 51) <span aria-hidden="true">&#8599;</span></a></span>
             </li>
             <li class="reveal">
               <span class="honor-k">Award</span>
@@ -763,7 +778,7 @@
           </div>
           <div class="skill reveal">
             <h3>Delivery &amp; governance</h3>
-            <p>Proposals &amp; SOWs &middot; RFI / RFP / GeM responses &middot; compliance matrices &middot; programme &amp; milestone management &middot; risk &amp; dependency planning &middot; vendor &amp; model evaluation</p>
+            <p>Proposals &amp; SOWs &middot; RFI / RFP / GeM responses &middot; compliance matrices &middot; program &amp; milestone management &middot; risk &amp; dependency planning &middot; vendor &amp; model evaluation</p>
           </div>
           <div class="skill reveal">
             <h3>AI &amp; agents</h3>
@@ -852,6 +867,6 @@
     </div>
   </footer>
 
-  <script src="assets/main.js" defer></script>
+  <script src="assets/main.js" defer onerror="document.documentElement.classList.remove('js')"></script>
 </body>
 </html>
