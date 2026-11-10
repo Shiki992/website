@@ -29,8 +29,18 @@
 
   /* ---------- Top bar border on scroll ---------- */
   var topbar = document.querySelector('.topbar');
+  var phone = window.matchMedia('(max-width: 900px)');
+  var lastY = window.scrollY;
   function onScroll() {
-    if (topbar) topbar.classList.toggle('scrolled', window.scrollY > 8);
+    var y = window.scrollY;
+    if (topbar) topbar.classList.toggle('scrolled', y > 8);
+    // Phones: tuck the bar away while reading down, bring it back on any scroll up.
+    var dy = y - lastY;
+    if (Math.abs(dy) > 6 || y < 80) {
+      var menuOpen = document.body.classList.contains('menu-open');
+      root.classList.toggle('bar-away', phone.matches && !menuOpen && dy > 0 && y > 200 && !topbar.contains(document.activeElement));
+      lastY = y;
+    }
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
@@ -86,6 +96,26 @@
     reveals.forEach(function (el) { io.observe(el); });
   } else {
     reveals.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  // Count the headline numbers up from zero the first time they come into view.
+  var stats = document.querySelector('.stats');
+  if (stats && 'IntersectionObserver' in window && !reduceMotion.matches) {
+    var counters = [].filter.call(stats.querySelectorAll('dd'), function (dd) { return /\d/.test(dd.textContent) && dd.textContent.indexOf('\u2192') < 0; });
+    var statIo = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      statIo.disconnect();
+      counters.forEach(function (dd) {
+        var text = dd.textContent, target = parseInt(text.match(/\d+/)[0], 10), t0 = performance.now();
+        dd.setAttribute('aria-label', text);
+        (function tick(now) {
+          var p = Math.min(1, (now - t0) / 1400), e = 1 - Math.pow(1 - p, 3);
+          dd.textContent = text.replace(/\d+/, String(Math.round(target * e)));
+          if (p < 1) requestAnimationFrame(tick); else dd.removeAttribute('aria-label');
+        })(t0);
+      });
+    }, { threshold: 0.4 });
+    statIo.observe(stats);
   }
 
   var navLinks = document.querySelectorAll('.nav a, .mobile-nav a');
@@ -145,7 +175,6 @@
     });
 
     var list = marquee.querySelector('.org-list');
-    var pause = document.querySelector('.marquee-toggle');
     if (list && !reduceMotion.matches) {
       var clone = list.cloneNode(true);
       clone.setAttribute('aria-hidden', 'true');
@@ -160,15 +189,6 @@
       window.addEventListener('load', sizeMarquee);
       window.addEventListener('resize', sizeMarquee);
       marquee.classList.add('is-moving');
-
-      if (pause) {
-        pause.hidden = false;
-        pause.addEventListener('click', function () {
-          var paused = marquee.classList.toggle('is-paused');
-          pause.setAttribute('aria-pressed', String(paused));
-          pause.setAttribute('aria-label', paused ? 'Play the scrolling logos' : 'Pause the scrolling logos');
-        });
-      }
     }
   }
 

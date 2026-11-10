@@ -32,6 +32,10 @@
   <script>
     document.documentElement.classList.add('js');
     try {
+      if (sessionStorage.getItem('intro') || matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('no-intro');
+      else sessionStorage.setItem('intro', '1');
+    } catch (e) {}
+    try {
       var t = localStorage.getItem('theme');
       if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
     } catch (e) {}
@@ -60,6 +64,13 @@
   </script>
 </head>
 <body>
+  <div class="loader" aria-hidden="true">
+    <div class="loader-mark">
+      <svg class="loader-hex" viewBox="0 0 120 120"><polygon points="60,4 108.5,32 108.5,88 60,116 11.5,88 11.5,32"/></svg>
+      <img src="assets/img/logo-mark.png" alt="" width="40" height="32">
+    </div>
+    <p class="loader-name">Hrishikesh Vedantam</p>
+  </div>
   <a class="skip" href="#main">Skip to content</a>
 
   <header class="topbar">
@@ -111,6 +122,7 @@
             <a class="btn btn-ghost" href="#work">See the work</a>
             <a class="btn btn-ghost" href="https://www.linkedin.com/in/hrishikesh-vedantam" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">&#8599;</span></a>
           </div>
+          <p class="hero-seen"><span>As seen at</span> <a href="#speaking">Startup Mahakumbh 2025</a> <i aria-hidden="true"></i> <a href="#speaking">T-Hub Foundation Day</a> <i aria-hidden="true"></i> <a href="#speaking">TDK Ventures research</a></p>
         </div>
         <div class="hero-art">
           <canvas id="hive" aria-hidden="true"></canvas>
@@ -139,10 +151,6 @@
           <h2 id="orgs-h">Organizations I&rsquo;ve worked with</h2>
           <p>Clients, employers and universities across India, the Netherlands, Singapore, the UAE and Canada.</p>
         </div>
-        <button class="marquee-toggle" type="button" aria-pressed="false" aria-label="Pause the scrolling logos" hidden>
-          <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6.5v11M15 6.5v11"/></svg>
-          <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 6v12l9.5-6Z"/></svg>
-        </button>
       </div>
       <div class="marquee">
         <div class="marquee-track">
@@ -613,6 +621,7 @@
           <li class="job reveal">
             <div class="job-when"><time>Mar 2024</time> &ndash; Present</div>
             <div class="job-body">
+              <span class="logo-tile"><img src="assets/img/logos/meridian-data-labs.png" alt="" width="129" height="120" loading="lazy"></span>
               <h3>Co-Founder &amp; Product Lead <span class="at">Meridian Data Labs</span></h3>
               <p class="job-where">Hyderabad, India / Guelph, ON (remote)</p>
               <ul>
@@ -628,6 +637,7 @@
           <li class="job reveal">
             <div class="job-when"><time>Fall 2026</time> &ndash; Present</div>
             <div class="job-body">
+              <span class="logo-tile"><img src="assets/img/logos/waterloo.png" alt="" width="105" height="120" loading="lazy"></span>
               <h3>Teaching Assistant <span class="at">University of Waterloo</span></h3>
               <p class="job-where">BET 405, Digital Leadership &amp; Transformation</p>
             </div>
@@ -636,6 +646,7 @@
           <li class="job reveal">
             <div class="job-when"><time>Mar 2022</time> &ndash; Mar 2024</div>
             <div class="job-body">
+              <span class="logo-tile"><img src="assets/img/logos/optiply.png" alt="" width="463" height="120" loading="lazy"></span>
               <h3>Techno-Commercial Manager, Asia <span class="at">Optiply</span></h3>
               <p class="job-where">Hyderabad, India</p>
               <ul>
@@ -649,6 +660,7 @@
           <li class="job reveal">
             <div class="job-when"><time>May 2021</time> &ndash; Jan 2022</div>
             <div class="job-body">
+              <span class="logo-tile"><img src="assets/img/logos/vassar-labs.png" alt="" width="110" height="112" loading="lazy"></span>
               <h3>Software Engineer <span class="at">Vassar Labs</span></h3>
               <p class="job-where">Hyderabad, India</p>
               <ul>
@@ -660,6 +672,7 @@
           <li class="job reveal">
             <div class="job-when"><time>Aug 2021</time> &ndash; Dec 2021</div>
             <div class="job-body">
+              <span class="logo-tile logo-tile--mono" aria-hidden="true">CD</span>
               <h3>Teaching Assistant, Cloud Computing <span class="at">Coding Dojo</span></h3>
               <p class="job-where">Remote, part-time</p>
               <ul>
@@ -671,6 +684,7 @@
           <li class="job reveal">
             <div class="job-when"><time>Sep 2020</time> &ndash; Jan 2021</div>
             <div class="job-body">
+              <span class="logo-tile logo-tile--mono" aria-hidden="true">E</span>
               <h3>Software Architecture Intern <span class="at">Estatetial</span></h3>
               <p class="job-where">Markham, ON (remote)</p>
               <ul>
@@ -682,6 +696,7 @@
           <li class="job reveal">
             <div class="job-when"><time>May 2020</time> &ndash; Aug 2020</div>
             <div class="job-body">
+              <span class="logo-tile"><img src="assets/img/logos/iit-hyderabad.png" alt="" width="116" height="120" loading="lazy"></span>
               <h3>Cloud Deployment Intern <span class="at">Indian Institute of Technology</span></h3>
               <p class="job-where">Hyderabad, India</p>
               <ul>
@@ -693,6 +708,7 @@
           <li class="job reveal">
             <div class="job-when"><time>May 2019</time> &ndash; Jun 2019</div>
             <div class="job-body">
+              <span class="logo-tile"><img src="assets/img/logos/nus.png" alt="" width="94" height="120" loading="lazy"></span>
               <h3>Academic Intern <span class="at">National University of Singapore</span></h3>
               <p class="job-where">Singapore</p>
               <ul>
@@ -704,6 +720,7 @@
           <li class="job reveal">
             <div class="job-when"><time>May 2018</time> &ndash; Jul 2018</div>
             <div class="job-body">
+              <span class="logo-tile"><img src="assets/img/logos/trackit.png" alt="" width="338" height="59" loading="lazy"></span>
               <h3>Software Development Intern <span class="at">TrackIT Solutions</span></h3>
               <p class="job-where">Dubai, UAE</p>
               <ul>
@@ -722,6 +739,25 @@
           <p class="kicker">Speaking &amp; recognition</p>
           <h2 id="speak-h">On stage, on camera, and in print.</h2>
         </header>
+
+        <div class="gallery">
+          <figure class="shot shot--lead reveal">
+            <img src="assets/img/press/keynote-1200.webp" srcset="assets/img/press/keynote-640.webp 640w, assets/img/press/keynote-1200.webp 1146w" sizes="(max-width: 820px) 100vw, 600px" width="1146" height="955" loading="lazy" alt="Hrishikesh speaking at a podium in front of a large screen at Startup Mahakumbh">
+            <figcaption><b>Keynote &middot; Startup Mahakumbh 2025</b><span>Bharat Mandapam, New Delhi</span></figcaption>
+          </figure>
+          <figure class="shot shot--wide reveal">
+            <img src="assets/img/press/thub-launch-1200.webp" srcset="assets/img/press/thub-launch-640.webp 640w, assets/img/press/thub-launch-1200.webp 1146w" sizes="(max-width: 820px) 100vw, 480px" width="1146" height="1007" loading="lazy" alt="Hrishikesh at the podium on the T-Hub Foundation Day stage">
+            <figcaption><b>Product launch &middot; T-Hub</b><span>Launching Honeycomb and Buzz AI at T-Hub&rsquo;s 9th Foundation Day</span></figcaption>
+          </figure>
+          <figure class="shot reveal">
+            <img src="assets/img/press/handshake-640.webp" srcset="assets/img/press/handshake-640.webp 640w, assets/img/press/handshake-1200.webp 1200w" sizes="(max-width: 820px) 50vw, 240px" width="1200" height="826" loading="lazy" alt="Hrishikesh shaking hands with a delegate at Startup Mahakumbh">
+            <figcaption><b>Startup Mahakumbh 2025</b><span>With policymakers and industry leaders</span></figcaption>
+          </figure>
+          <figure class="shot reveal">
+            <img src="assets/img/press/booth-640.webp" srcset="assets/img/press/booth-640.webp 640w, assets/img/press/booth-1200.webp 896w" sizes="(max-width: 820px) 50vw, 240px" width="896" height="1002" loading="lazy" alt="Hrishikesh at the Meridian Data Labs stand at Startup Mahakumbh">
+            <figcaption><b>On the floor</b><span>Live demos at the Meridian Data Labs stand</span></figcaption>
+          </figure>
+        </div>
 
         <div class="speak-grid">
           <article class="talk reveal">
@@ -770,35 +806,35 @@
         <div class="skills">
           <div class="skill reveal">
             <h3>Strategy &amp; discovery</h3>
-            <p>Current-state assessment &middot; process audits &amp; workflow mapping &middot; use-case prioritization &middot; ROI, pricing &amp; business cases &middot; scenario modelling &middot; roadmapping &middot; go-to-market</p>
+            <ul class="skill-tags"><li>Current-state assessment</li><li>Process audits &amp; workflow mapping</li><li>Use-case prioritization</li><li>ROI, pricing &amp; business cases</li><li>Scenario modelling</li><li>Roadmapping</li><li>Go-to-market</li></ul>
           </div>
           <div class="skill reveal">
             <h3>Change &amp; adoption</h3>
-            <p>Discovery workshops &middot; executive presentations &middot; stakeholder alignment &middot; team AI adoption &middot; training, runbooks &amp; playbooks &middot; technical writing &middot; Agile delivery (Jira, Confluence, Notion)</p>
+            <ul class="skill-tags"><li>Discovery workshops</li><li>Executive presentations</li><li>Stakeholder alignment</li><li>Team AI adoption</li><li>Training, runbooks &amp; playbooks</li><li>Technical writing</li><li>Agile delivery (Jira, Confluence, Notion)</li></ul>
           </div>
           <div class="skill reveal">
             <h3>Delivery &amp; governance</h3>
-            <p>Proposals &amp; SOWs &middot; RFI / RFP / GeM responses &middot; compliance matrices &middot; program &amp; milestone management &middot; risk &amp; dependency planning &middot; vendor &amp; model evaluation</p>
+            <ul class="skill-tags"><li>Proposals &amp; SOWs</li><li>RFI / RFP / GeM responses</li><li>Compliance matrices</li><li>Program &amp; milestone management</li><li>Risk &amp; dependency planning</li><li>Vendor &amp; model evaluation</li></ul>
           </div>
           <div class="skill reveal">
             <h3>AI &amp; agents</h3>
-            <p>Claude, ChatGPT, Gemini &middot; Llama 3, Mistral &middot; agentic workflows &amp; tool calling &middot; RAG &amp; pgvector &middot; MCP servers &middot; evaluation &amp; guardrails &middot; Cursor, Copilot</p>
+            <ul class="skill-tags"><li>Claude, ChatGPT, Gemini</li><li>Llama 3, Mistral</li><li>Agentic workflows &amp; tool calling</li><li>RAG &amp; pgvector</li><li>MCP servers</li><li>Evaluation &amp; guardrails</li><li>Cursor, Copilot</li></ul>
           </div>
           <div class="skill reveal">
             <h3>Automation &amp; integration</h3>
-            <p>n8n &middot; Zapier &middot; Retool &middot; REST, GraphQL &amp; webhooks &middot; OpenAPI &amp; Postman &middot; Zoho &amp; Odoo ERP &middot; HubSpot CRM</p>
+            <ul class="skill-tags"><li>n8n</li><li>Zapier</li><li>Retool</li><li>REST, GraphQL &amp; webhooks</li><li>OpenAPI &amp; Postman</li><li>Zoho &amp; Odoo ERP</li><li>HubSpot CRM</li></ul>
           </div>
           <div class="skill reveal">
             <h3>Sensor networks &amp; IoT</h3>
-            <p>LoRaWAN &amp; ChirpStack &middot; MQTT, MQTTS &amp; CoAP &middot; EdgeX Foundry &amp; Magistrala &middot; offline edge runtimes in Go &middot; Raspberry Pi, Arduino, ESP32 &middot; plant-wide sensor planning</p>
+            <ul class="skill-tags"><li>LoRaWAN &amp; ChirpStack</li><li>MQTT, MQTTS &amp; CoAP</li><li>EdgeX Foundry &amp; Magistrala</li><li>Offline edge runtimes in Go</li><li>Raspberry Pi, Arduino, ESP32</li><li>Plant-wide sensor planning</li></ul>
           </div>
           <div class="skill reveal">
             <h3>Computer networks &amp; security</h3>
-            <p>TCP/IP, DNS &amp; routing &middot; segmentation &amp; firewall rules &middot; SDN &middot; zero-trust overlays (Tailscale, WireGuard) &middot; VPN &middot; hybrid on-prem and cloud connectivity &middot; SSO, SAML, OIDC &middot; zero-knowledge proofs</p>
+            <ul class="skill-tags"><li>TCP/IP, DNS &amp; routing</li><li>Segmentation &amp; firewall rules</li><li>SDN</li><li>Zero-trust overlays (Tailscale, WireGuard)</li><li>VPN</li><li>Hybrid on-prem and cloud connectivity</li><li>SSO, SAML, OIDC</li><li>Zero-knowledge proofs</li></ul>
           </div>
           <div class="skill reveal">
             <h3>Cloud, data &amp; code</h3>
-            <p>GCP &middot; AWS &middot; Azure &middot; Docker &middot; Kubernetes &middot; OpenStack &middot; Ansible &amp; pyInfra &middot; Linux &middot; Python, Go, Rust, TypeScript &middot; WebAssembly &middot; Office add-ins &amp; Microsoft Graph &middot; PostgreSQL &middot; Superset &amp; Grafana &middot; air-gapped deployment</p>
+            <ul class="skill-tags"><li>GCP</li><li>AWS</li><li>Azure</li><li>Docker</li><li>Kubernetes</li><li>OpenStack</li><li>Ansible &amp; pyInfra</li><li>Linux</li><li>Python, Go, Rust, TypeScript</li><li>WebAssembly</li><li>Office add-ins &amp; Microsoft Graph</li><li>PostgreSQL</li><li>Superset &amp; Grafana</li><li>Air-gapped deployment</li></ul>
           </div>
         </div>
       </div>
@@ -813,6 +849,7 @@
         </header>
         <ul class="edu">
           <li class="reveal edu-feature">
+            <span class="logo-tile"><img src="assets/img/logos/waterloo.png" alt="" width="105" height="120" loading="lazy"></span>
             <p class="edu-when">Sep 2026 &ndash; Sep 2027 &middot; In progress</p>
             <h3>University of Waterloo</h3>
             <p>Master of Business, Entrepreneurship and Technology (MBET).</p>
@@ -820,6 +857,7 @@
             <p>Coursework includes Essential Accounting for Entrepreneurs (BET 605) and the corporate finance side of digital transformation. Teaching Assistant for BET 405, Digital Leadership &amp; Transformation.</p>
           </li>
           <li class="reveal">
+            <span class="logo-tile"><img src="assets/img/logos/iiitdm-kancheepuram.webp" alt="" width="120" height="120" loading="lazy"></span>
             <p class="edu-when">2017 &ndash; 2022 &middot; Chennai, India</p>
             <h3>IIITDM Kancheepuram</h3>
             <p>Dual degree (B.Tech + M.Tech) in Computer Engineering.</p>
@@ -830,6 +868,7 @@
             </ul>
           </li>
           <li class="reveal">
+            <span class="logo-tile logo-tile--mono" aria-hidden="true">DPS</span>
             <p class="edu-when">Until 2017</p>
             <h3>Delhi Private School</h3>
             <p>Secondary education, Computer Science. Dubai, UAE.</p>
@@ -865,6 +904,7 @@
       <span class="footer-brand"><img src="assets/img/logo-mark.png" alt="" width="20" height="16">&copy; <span id="year">2026</span> Hrishikesh Vedantam</span>
       <span>Guelph, Ontario &middot; Hand-built, no frameworks</span>
     </div>
+    <p class="footer-mark" aria-hidden="true">Vedantam</p>
   </footer>
 
   <script src="assets/main.js" defer onerror="document.documentElement.classList.remove('js')"></script>
