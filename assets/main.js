@@ -118,7 +118,10 @@
     statIo.observe(stats);
   }
 
-  var navLinks = document.querySelectorAll('.nav a, .mobile-nav a');
+  // Only links to sections on this page take part; a link to another page keeps its own state.
+  var navLinks = [].filter.call(document.querySelectorAll('.nav a, .mobile-nav a'), function (a) {
+    return a.getAttribute('href').charAt(0) === '#';
+  });
   if ('IntersectionObserver' in window && navLinks.length) {
     var byId = {};
     navLinks.forEach(function (a) {
