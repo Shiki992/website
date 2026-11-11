@@ -197,10 +197,11 @@
 
   /* ---------- Scroll-linked sections ---------- */
   var stackable = window.matchMedia('(min-width: 821px)');
-  var stacking = window.matchMedia('screen and (min-width: 821px) and (min-height: 720px) and (prefers-reduced-motion: no-preference)');
+  var stackMotion = window.matchMedia('screen and (min-width: 821px) and (prefers-reduced-motion: no-preference)');
   var proc = document.querySelector('.process');
   var procView = proc && proc.querySelector('.process-viewport');
-  var stacks = [].slice.call(document.querySelectorAll('[data-stack]')).map(function (s) {
+  var stackEls = [].slice.call(document.querySelectorAll('[data-stack]'));
+  var stacks = stackEls.map(function (s) {
     return [].slice.call(s.children);
   });
   var timeline = document.querySelector('.timeline');
@@ -240,12 +241,29 @@
     }
   }
 
+  // Work: stack only when the tallest card fits below the last stick point (sizes come from style.css),
+  // so short laptop windows get it too; anything smaller stays a plain list.
+  function layoutStacks() {
+    stackEls.forEach(function (el, k) {
+      var cards = stacks[k];
+      var on = false;
+      if (stackMotion.matches && cards.length) {
+        var cs = getComputedStyle(el);
+        var lastTop = parseFloat(cs.getPropertyValue('--stack-top')) + (cards.length - 1) * parseFloat(cs.getPropertyValue('--stack-step'));
+        var tallest = Math.max.apply(null, cards.map(function (c) { return c.offsetHeight; }));
+        on = lastTop + tallest + 12 <= window.innerHeight;
+      }
+      el.classList.toggle('is-stacking', on);
+    });
+  }
+
   function updateScrollFx() {
     // Work: each card shrinks a little and its content fades as the next one slides over it.
-    stacks.forEach(function (cards) {
+    stacks.forEach(function (cards, k) {
+      var on = stackEls[k].classList.contains('is-stacking');
       for (var i = 0; i < cards.length - 1; i++) {
         var q = 0;
-        if (stacking.matches) {
+        if (on) {
           var gap = cards[i + 1].getBoundingClientRect().top - cards[i].getBoundingClientRect().top;
           q = clamp01(1 - gap / cards[i].offsetHeight);
         }
@@ -285,7 +303,7 @@
     fxQueued = true;
     requestAnimationFrame(function () { fxQueued = false; updateScrollFx(); });
   }
-  function relayout() { updateProcess(); updateScrollFx(); }
+  function relayout() { layoutStacks(); updateProcess(); updateScrollFx(); }
   if (procView) procView.addEventListener('scroll', updateProcess, { passive: true });
   window.addEventListener('scroll', queueFx, { passive: true });
   window.addEventListener('resize', relayout);

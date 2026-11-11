@@ -406,7 +406,7 @@ h2 {
 
 /* Selected work: cards stick and stack, each new one sliding over the last */
 .case-tag { font: 600 12px/1.4 var(--f-display); color: var(--accent); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
-.stack { display: grid; gap: 28px; isolation: isolate; }
+.stack { --stack-top: 92px; --stack-step: 14px; display: grid; gap: 28px; isolation: isolate; }
 .stack-card {
   position: relative;
   display: grid; grid-template-columns: 1.08fr 1fr; min-height: 440px;
@@ -435,13 +435,28 @@ h2 {
 .stack-metric--long { font-size: clamp(50px, 6.4vw, 86px); }
 .stack-metric-label { margin: 0 0 18px; font: 600 17px/1.35 var(--f-display); }
 .stack-outcome { margin: 0; padding-top: 16px; border-top: 1px solid rgba(255, 255, 255, 0.26); font-size: 15px; line-height: 1.55; color: rgba(255, 255, 255, 0.86); max-width: 42ch; }
-/* Stacking needs JS, motion and room for a whole card. Otherwise the cards are a plain list, so nothing is ever pushed away from the heading.
-   Equal rows mean a card on top always covers the one below, and --covered (set in main.js) fades what would still peek out above it.
-   Keep this query in step with `stacking` in main.js. */
-@media screen and (min-width: 821px) and (min-height: 720px) and (prefers-reduced-motion: no-preference) {
-  .js .stack { grid-auto-rows: 1fr; }
-  .js .stack-card { position: sticky; top: calc(92px + var(--i, 0) * 14px); z-index: calc(var(--i, 0) + 1); }
-  .js .stack-copy > *, .js .stack-visual > * { opacity: calc(1 - var(--covered, 0)); }
+/* Stacking needs JS, motion and room for a whole card below its last stick point; main.js measures that and sets .is-stacking.
+   Otherwise the cards are a plain list, so nothing is ever pushed away from the heading.
+   Equal rows mean a card on top always covers the one below, and --covered (set in main.js) fades what would still peek out above it. */
+.stack.is-stacking { grid-auto-rows: 1fr; }
+.stack.is-stacking .stack-card { position: sticky; top: calc(var(--stack-top) + var(--i, 0) * var(--stack-step)); z-index: calc(var(--i, 0) + 1); }
+.stack.is-stacking .stack-copy > *, .stack.is-stacking .stack-visual > * { opacity: calc(1 - var(--covered, 0)); }
+/* Short windows, such as 1080p laptops at 150% scaling: tighter cards and stick points so the whole stack still fits on screen */
+@media (min-width: 821px) and (max-height: 799px) {
+  .stack { --stack-top: 76px; --stack-step: 8px; }
+  .stack-card { min-height: 0; }
+  .stack-copy, .stack-visual { padding: clamp(20px, 4vh, 42px) clamp(22px, 3.2vw, 42px); }
+  .case-tag { margin-bottom: 6px; }
+  .stack-copy h3 { font-size: clamp(20px, min(2.3vw, 4.2vh), 29px); margin-bottom: clamp(8px, 1.6vh, 14px); }
+  .stack-desc { font-size: clamp(14.5px, 2.6vh, 16px); line-height: 1.55; margin-bottom: clamp(12px, 2.4vh, 22px); }
+  .stack-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); column-gap: 24px; }
+  .stack-meta div { padding: clamp(10px, 1.8vh, 14px) 0 0; }
+  .stack-meta dt { margin-bottom: 8px; }
+  .stack-cta { margin-top: clamp(12px, 2.4vh, 22px); }
+  .stack-metric { font-size: clamp(52px, min(8.4vw, 13vh), 112px); }
+  .stack-metric--long { font-size: clamp(44px, min(6.4vw, 10vh), 86px); }
+  .stack-metric-label { margin-bottom: clamp(10px, 2vh, 18px); }
+  .stack-outcome { padding-top: clamp(10px, 2vh, 16px); }
 }
 
 /* Platforms: the list scrolls past a pinned stage that shows the platform in focus */
