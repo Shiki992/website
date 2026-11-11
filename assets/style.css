@@ -229,6 +229,8 @@ h1 {
   letter-spacing: -0.03em;
   margin-bottom: 24px;
 }
+.name-note { margin: -12px 0 22px; font: 500 15px/1.4 var(--f-body); color: var(--muted); }
+.name-note b { font-family: var(--f-display); font-weight: 700; color: var(--accent); }
 .lede {
   font-family: var(--f-display);
   font-weight: 500;
@@ -769,6 +771,7 @@ h2 {
   .js .hero-copy > :nth-child(4) { --k: 3; }
   .js .hero-copy > :nth-child(5) { --k: 4; }
   .js .hero-copy > :nth-child(6) { --k: 5; }
+  .js .hero-copy > :nth-child(7) { --k: 6; }
   .js .hero-art { --k: 2; animation-name: rise-in; }
   .hero::before { animation: glow 9s ease-in-out infinite alternate; }
 }
